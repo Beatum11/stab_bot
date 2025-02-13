@@ -7,10 +7,8 @@ class MongoDB:
 
     @staticmethod
     def get_instance(connection_string: str = None) -> motorio.AsyncIOMotorClient:
-        """Get or create MongoDB singleton instance"""
+
         if MongoDB._instance is None:
-            if connection_string is None:
-                raise ValueError("Connection string is required for first initialization")
             MongoDB(connection_string)
         return MongoDB._instance
 
